@@ -1,0 +1,125 @@
+﻿@using ChatEjemploBibliotecaClase.ViewModels
+@using ChatEjemploBibliotecaClase.Models
+@inject IJSRuntime JS
+
+@implements IDisposable
+
+@code {
+    private ChatController vm = new();
+    private bool ChatAbierto = false;
+    private int Notificaciones = 0;
+    private ElementReference chatSoundRef;
+
+    protected override void OnInitialized()
+    {
+        vm.PropertyChanged += (_, __) => InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        vm.PropertyChanged -= (_, __) => InvokeAsync(StateHasChanged);
+    }
+
+    private async Task EnviarAsync()
+    {
+        await vm.SendMessage();
+    }
+
+    private async Task LoginAsync()
+    {
+        await vm.Login();
+
+        if (vm.IsLoggedIn)
+        {
+            vm.Mensajes.CollectionChanged += async (_, __) =>
+            {
+                if (!ChatAbierto)
+                {
+                    Notificaciones++;
+                    await ReproducirSonido();
+                }
+
+                await InvokeAsync(StateHasChanged);
+            };
+
+        }
+    }
+
+    private void AlternarChat()
+    {
+        ChatAbierto = !ChatAbierto;
+
+        if (ChatAbierto)
+        {
+            Notificaciones = 0;
+        }
+    }
+
+    private async Task ReproducirSonido()
+    {
+        await JS.InvokeVoidAsync("playSoundElement", chatSoundRef);
+    }
+
+}
+<!-- Botón flotante -->
+<button class="chat-toggle" @onclick="AlternarChat">
+    💬
+    @if (Notificaciones > 0 && !ChatAbierto)
+    {
+        <span class="badge">@Notificaciones</span>
+    }
+</button>
+
+<!-- Ventana de chat flotante -->
+@if (ChatAbierto)
+{
+    <div class="chat-wrapper">
+        @if (!vm.IsLoggedIn)
+        {
+            <!-- Login dentro de la ventana -->
+            <div class="login-box p-4 text-white" style="margin: auto;">
+                <h5 class="mb-3">Ingresa tu correo</h5>
+                <input type="email" @bind="vm.Email" placeholder="Email" class="form-control mb-3" />
+                <button class="btn btn-primary w-100" @onclick="LoginAsync">Entrar</button>
+            </div>
+        }
+        else
+        {
+            <!-- Chat activo -->
+            <div class="sidebar">
+                <h5>Conectados</h5>
+                <ul>
+                    @foreach (var user in vm.Usuarios)
+                    {
+                        <li class="@(user.Contains("(tú)") ? "tu" : "")">@user</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="chat-container">
+                @foreach (var mensaje in vm.Mensajes)
+                {
+                    <div class="message @(mensaje.IsMine ? "from-me" : "from-them")">
+                        <div class="sender">@mensaje.Sender</div>
+                        <div>@mensaje.Message</div>
+                        <div class="timestamp">@DateTime.Now.ToString("HH:mm")</div>
+                    </div>
+                }
+            </div>
+
+            <div class="chat-input">
+                <input @bind="vm.Message" placeholder="Escribe un mensaje..."
+                       @onkeydown="@((KeyboardEventArgs e) => {
+                           if (e.Key == "Enter") EnviarAsync();
+                       })"
+                       class="form-control" />
+                <button class="btn btn-primary ms-2" @onclick="EnviarAsync">Enviar</button>
+            </div>
+        }
+    </div>
+
+}
+<audio id="chatSound" preload="auto" @ref="chatSoundRef">
+    <source src="notificacion.mp3" type="audio/mpeg">
+</audio>
+

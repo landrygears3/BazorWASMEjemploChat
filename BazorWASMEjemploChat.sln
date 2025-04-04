@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazorWASMEjemploChat", "BazorWASMEjemploChat\BazorWASMEjemploChat.csproj", "{B69505F9-9175-401A-ADFD-47524FB6DB7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatEjemploBibliotecaClase", "..\..\..\..\..\GitHub\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase.csproj", "{97C053FC-69B8-40E8-AF20-5D6102F5057B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B69505F9-9175-401A-ADFD-47524FB6DB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69505F9-9175-401A-ADFD-47524FB6DB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69505F9-9175-401A-ADFD-47524FB6DB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69505F9-9175-401A-ADFD-47524FB6DB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C053FC-69B8-40E8-AF20-5D6102F5057B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C053FC-69B8-40E8-AF20-5D6102F5057B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C053FC-69B8-40E8-AF20-5D6102F5057B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C053FC-69B8-40E8-AF20-5D6102F5057B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F708557-DEF2-48D3-B9B6-C40B87BFAF9E}
+	EndGlobalSection
+EndGlobal
