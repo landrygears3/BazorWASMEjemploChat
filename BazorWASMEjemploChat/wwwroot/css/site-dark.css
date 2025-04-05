@@ -1,0 +1,352 @@
+﻿/* === Tema Oscuro Base === */
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+a, .btn-link {
+    color: #0d6efd;
+}
+
+h1:focus {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+.card {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.text-muted {
+    color: #aaaaaa !important;
+}
+
+/* === Botones === */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0a58ca;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #0d6efd;
+}
+
+/* === Formularios === */
+.form-control {
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    color: white;
+}
+
+    .form-control::placeholder {
+        color: #999;
+    }
+
+    .form-control:focus {
+        background-color: #3a3a3a;
+        border-color: #0d6efd;
+        box-shadow: none;
+    }
+
+/* === Navegación === */
+.navbar, .top-row {
+    background-color: #2c2c2c;
+    color: #3a3a3a;
+    border-bottom: 1px solid #444;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+    .nav-link.active {
+        background-color: #0d6efd;
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .nav-link:hover {
+        background-color: #0056b3;
+        color: white !important;
+    }
+
+.sidebar {
+    background: linear-gradient(to bottom, #0d0d2b, #35002c);
+}
+
+/* === Validación === */
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+/* === Error UI === */
+#blazor-error-ui {
+    background: #2c2c2c;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+/* === Loading Spinner === */
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
+}
+
+    .loading-progress circle {
+        fill: none;
+        stroke: #3a3a3a;
+        stroke-width: 0.6rem;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+    }
+
+        .loading-progress circle:last-child {
+            stroke: #0d6efd;
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+}
+
+    .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
+    }
+
+/* === Estilos de Chat Oscuro === */
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 15000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .chat-toggle .badge {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 0.7rem;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+    }
+
+.chat-wrapper {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 100%;
+    max-width: 360px;
+    height: 500px;
+    background-color: #2c2c2c;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 14000;
+}
+
+.login-box {
+    background-color: #2c2c2c;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.sidebar h5 {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+.sidebar li {
+    font-size: 0.85rem;
+    padding: 2px 0;
+    color: #ccc;
+}
+
+    .sidebar li.tu {
+        color: #0d6efd;
+        font-weight: bold;
+    }
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 75%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 1rem;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.from-me {
+    align-self: flex-end;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.from-them {
+    align-self: flex-start;
+    background-color: #444;
+    color: white;
+}
+
+.sender {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #bbbbbb;
+    margin-bottom: 0.3rem;
+}
+
+.timestamp {
+    font-size: 0.65rem;
+    color: #aaaaaa;
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0.75rem;
+}
+
+.chat-input {
+    display: flex;
+    padding: 1rem;
+    background-color: #1f1f1f;
+    border-top: 1px solid #444;
+}
+
+    .chat-input input {
+        flex: 1;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        background-color: #3a3a3a;
+        color: white;
+    }
+
+        .chat-input input:focus {
+            outline: none;
+        }
+
+    .chat-input button {
+        margin-left: 0.5rem;
+    }
+
+@media (max-width: 500px) {
+    .chat-wrapper {
+        width: 95%;
+        right: 2.5%;
+    }
+}
+/* === Corregir encabezados de tabla === */
+.table thead th {
+    color: #f0f0f0 !important;
+    font-weight: bold;
+}
+
+/* === Corregir contenido de tabla === */
+.table tbody td {
+    color: #dddddd !important;
+}
+
+/* === Color de texto en formularios y entradas === */
+input, textarea, select {
+    color: #f0f0f0 !important;
+    background-color: #3a3a3a !important;
+}
+
+    /* === Placeholder (texto tenue en inputs) === */
+    input::placeholder,
+    textarea::placeholder {
+        color: #cccccc !important;
+        opacity: 1 !important;
+    }
+
+/* === Asegura buen contraste en botones primarios (ya tienes esto pero lo reforzamos) === */
+.btn-primary {
+    color: #ffffff !important;
+    background-color: #0d6efd !important;
+    border-color: #0a58ca !important;
+}

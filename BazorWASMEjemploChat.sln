@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazorWASMEjemploChat", "BazorWASMEjemploChat\BazorWASMEjemploChat.csproj", "{B69505F9-9175-401A-ADFD-47524FB6DB7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatEjemploBibliotecaClase", "..\..\..\..\..\GitHub\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase.csproj", "{97C053FC-69B8-40E8-AF20-5D6102F5057B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatEjemploBibliotecaClase", "..\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase\ChatEjemploBibliotecaClase.csproj", "{97C053FC-69B8-40E8-AF20-5D6102F5057B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

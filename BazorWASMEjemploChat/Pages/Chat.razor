@@ -31,16 +31,20 @@
 
         if (vm.IsLoggedIn)
         {
-            vm.Mensajes.CollectionChanged += async (_, __) =>
+            vm.Mensajes.CollectionChanged += (_, __) =>
             {
-                if (!ChatAbierto)
+                _ = InvokeAsync(async () =>
                 {
-                    Notificaciones++;
-                    await ReproducirSonido();
-                }
+                    if (!ChatAbierto)
+                    {
+                        Notificaciones++;
+                        await ReproducirSonido();
+                    }
 
-                await InvokeAsync(StateHasChanged);
+                    StateHasChanged();
+                });
             };
+
 
         }
     }
